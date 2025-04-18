@@ -136,7 +136,8 @@ add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_main.cpp src/${PROJECT_N
 
 add_executable(agv_${PROJECT_NAME}_node src/agv_${PROJECT_NAME}_main.cpp 
 										src/agv_${PROJECT_NAME}_class.cpp 
-										src/${PROJECT_NAME}_class.cpp)
+										src/${PROJECT_NAME}_class.cpp
+										src/hydraulic_system_monitor.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

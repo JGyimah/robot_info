@@ -8,14 +8,19 @@ AGVRobotInfo::~AGVRobotInfo() {}
 
 void AGVRobotInfo::publish_data() {
 
-    ROS_INFO("Publishing data in /robot_info topic");
+    ROS_INFO("Publishing on /robot_info");
     robotinfo_msgs::RobotInfo10Fields msg;
+    std::vector<std::string> hydraulic_data = hydraulic_sys_monitor.get_hydraulic_data();
 
     msg.data_field_01 = robot_description;
     msg.data_field_02 = serial_number;
     msg.data_field_03 = ip_address;
     msg.data_field_04 = firmware_version;
     msg.data_field_05 = maximum_payload;
+    //hydraulic data
+    msg.data_field_06 = hydraulic_data[0];
+    msg.data_field_07 = hydraulic_data[1];
+    msg.data_field_08 = hydraulic_data[2];
 
     publisher.publish(msg);
 
